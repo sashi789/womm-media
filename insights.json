@@ -1,0 +1,23 @@
+{
+  "pulled_at": "2026-11-13 04:56 UTC",
+  "insights_available": false,
+  "insights_error": "Meta API error 400: {\"error\":{\"message\":\"(#10) Application does not have permission for this action\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"AC57B551GSLvWJfVUb0bhPa\"}}",
+  "reels": [
+    {
+      "date": "2026-11-12",
+      "name": "intro",
+      "media_id": "18196581208393072",
+      "likes": 1,
+      "comments": 0,
+      "link": "https://www.instagram.com/reel/DfqtQuqB-4v/"
+    },
+    {
+      "date": "2026-11-12",
+      "name": "cloud",
+      "media_id": "18122278681990698",
+      "likes": 2,
+      "comments": 0,
+      "link": "https://www.instagram.com/reel/Dfqu8oLAgif/"
+    }
+  ]
+}
