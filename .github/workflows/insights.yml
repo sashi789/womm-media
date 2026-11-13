@@ -9,6 +9,8 @@ concurrency: womm-state
 jobs:
   insights:
     runs-on: ubuntu-latest
+    env:
+      PYTHONDONTWRITEBYTECODE: "1"
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -22,5 +24,5 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -A .
+          git add schedule.json published.log insights.json 2>/dev/null || git add -u
           git diff --cached --quiet || (git commit -m "Update posting state" && git pull --rebase && git push)

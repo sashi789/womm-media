@@ -8,12 +8,17 @@ on:
         description: "Check everything but do not post"
         type: boolean
         default: true
+      date:
+        description: "Dry run only: pretend today is this date (YYYY-MM-DD)"
+        required: false
 permissions:
   contents: write
 concurrency: womm-state
 jobs:
   post:
     runs-on: ubuntu-latest
+    env:
+      PYTHONDONTWRITEBYTECODE: "1"
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -23,11 +28,12 @@ jobs:
         env:
           IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
           DRY_RUN: ${{ github.event_name == 'workflow_dispatch' && inputs.dry_run || 'false' }}
+          TODAY: ${{ github.event_name == 'workflow_dispatch' && inputs.dry_run && inputs.date || '' }}
         run: python scripts/ci_post.py
       - name: Save results
         if: always()
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -A .
+          git add schedule.json published.log insights.json 2>/dev/null || git add -u
           git diff --cached --quiet || (git commit -m "Update posting state" && git pull --rebase && git push)
