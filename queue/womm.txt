@@ -1,0 +1,13 @@
+thumb_seconds: 0.8
+---
+"But it works on my machine." Why code runs on your laptop and crashes in production.
+
+Same code, different surroundings: a newer language version, a library that was never installed, a file that only exists on the laptop.
+
+The fix is to ship the environment together with the app, so it runs the same everywhere. That is what containers do.
+
+What is your worst "worked on my machine" moment? Tell me in the comments.
+
+Follow @that_works_on_my_machine for more tech, explained simply.
+
+#programming #softwareengineering #developerlife #docker #techexplained

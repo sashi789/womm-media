@@ -1,0 +1,17 @@
+thumb_seconds: 11.5
+---
+What is Amazon S3? AWS storage explained in 60 seconds.
+
+Imagine keeping every user photo on one server, and the disk dies. That is the problem S3 was built to solve.
+
+In this episode:
+- Buckets and objects: drop files in, it never fills up
+- Why S3 almost never loses data: copies in three data centers, "11 nines" of durability
+- Cold files move to cheaper storage automatically
+- Private by default: you decide who gets in
+
+What is the first thing you would store in S3? Tell me in the comments.
+
+Follow @that_works_on_my_machine for more tech, explained simply.
+
+#aws #amazons3 #cloudcomputing #techexplained #devops

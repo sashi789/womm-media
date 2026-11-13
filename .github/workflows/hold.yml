@@ -1,0 +1,31 @@
+name: Hold or release a post
+on:
+  workflow_dispatch:
+    inputs:
+      action:
+        description: "hold stops a queued post; release puts it back"
+        type: choice
+        options: [hold, release]
+        default: hold
+      date:
+        description: "Date as YYYY-MM-DD (leave empty for today)"
+        required: false
+permissions:
+  contents: write
+concurrency: womm-state
+jobs:
+  hold:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python scripts/ci_hold.py "${{ inputs.action }}" "${{ inputs.date }}"
+      - name: Save results
+        if: always()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A .
+          git diff --cached --quiet || (git commit -m "Update posting state" && git pull --rebase && git push)
