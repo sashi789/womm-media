@@ -19,6 +19,14 @@ def today():
     return os.environ.get("TODAY") or datetime.now(ZoneInfo(CFG["timezone"])).strftime("%Y-%m-%d")
 
 
+def slot():
+    """'am' for the morning run, 'pm' for the evening run (by local time unless SLOT is set)."""
+    forced = os.environ.get("SLOT", "").strip().lower()
+    if forced in ("am", "pm"):
+        return forced
+    return "am" if datetime.now(ZoneInfo(CFG["timezone"])).hour < 14 else "pm"
+
+
 def token():
     tok = os.environ.get("IG_ACCESS_TOKEN", "").strip()
     if not tok:

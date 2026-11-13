@@ -1,7 +1,7 @@
 name: Collect Reel numbers
 on:
   schedule:
-    - cron: "0 15 * * *"   # 9:00 am US Central
+    - cron: "0 13 * * *"   # 7:00 am US Central
   workflow_dispatch:
 permissions:
   contents: write

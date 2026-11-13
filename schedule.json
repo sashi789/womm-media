@@ -3,12 +3,14 @@
     {
       "date": "2026-11-13",
       "name": "s3",
-      "status": "queued"
+      "status": "queued",
+      "slot": "pm"
     },
     {
       "date": "2026-11-15",
       "name": "womm",
-      "status": "queued"
+      "status": "queued",
+      "slot": "pm"
     }
   ]
 }

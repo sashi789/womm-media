@@ -1,7 +1,8 @@
-name: Post today's Reel
+name: Post the queued Reel
 on:
   schedule:
-    - cron: "30 0 * * *"   # 6:30 pm US Central (standard time); 7:30 pm during daylight saving
+    - cron: "0 15 * * *"   # morning slot: 9:00 am US Central (10:00 am during daylight saving)
+    - cron: "30 0 * * *"   # evening slot: 6:30 pm US Central (7:30 pm during daylight saving)
   workflow_dispatch:
     inputs:
       dry_run:
@@ -11,6 +12,11 @@ on:
       date:
         description: "Dry run only: pretend today is this date (YYYY-MM-DD)"
         required: false
+      slot:
+        description: "Which slot to run (leave on auto to go by the clock)"
+        type: choice
+        options: [auto, am, pm]
+        default: auto
 permissions:
   contents: write
 concurrency: womm-state
@@ -29,6 +35,7 @@ jobs:
           IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
           DRY_RUN: ${{ github.event_name == 'workflow_dispatch' && inputs.dry_run || 'false' }}
           TODAY: ${{ github.event_name == 'workflow_dispatch' && inputs.dry_run && inputs.date || '' }}
+          SLOT: ${{ github.event_name == 'workflow_dispatch' && inputs.slot || 'auto' }}
         run: python scripts/ci_post.py
       - name: Save results
         if: always()

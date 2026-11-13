@@ -5,21 +5,22 @@ import sys
 import time
 import urllib.request
 
-from ci_common import CFG, GRAPH, ROOT, call, load_schedule, save_schedule, today, token
+from ci_common import CFG, GRAPH, ROOT, call, load_schedule, save_schedule, slot, today, token
 
 DRY = os.environ.get("DRY_RUN", "").lower() in ("1", "true", "yes")
 
 
 def main():
-    day = today()
+    day, when = today(), slot()
     sched = load_schedule()
     if (ROOT / "HOLD").exists():
         print("A HOLD file is present: all posting is paused.")
         return
-    entry = next((p for p in sched["posts"] if p["date"] == day and p["status"] == "queued"), None)
+    entry = next((p for p in sched["posts"] if p["date"] == day and p.get("slot", "pm") == when
+                  and p["status"] == "queued"), None)
     if entry is None:
-        states = [f"{p['name']}={p['status']}" for p in sched["posts"] if p["date"] == day]
-        print(f"Nothing to post for {day}. Entries for today: {states or 'none'}")
+        states = [f"{p['name']}({p.get('slot', 'pm')})={p['status']}" for p in sched["posts"] if p["date"] == day]
+        print(f"Nothing to post for {day} {when}. Entries for today: {states or 'none'}")
         return
     name = entry["name"]
     log = ROOT / "published.log"
@@ -78,7 +79,7 @@ if __name__ == "__main__":
         try:
             s = load_schedule()
             for p in s["posts"]:
-                if p["date"] == today() and p["status"] == "queued" and not DRY:
+                if p["date"] == today() and p.get("slot", "pm") == slot() and p["status"] == "queued" and not DRY:
                     p.update(status="post_failed", error=str(e)[:300])
             save_schedule(s)
         finally:
