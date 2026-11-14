@@ -2,7 +2,7 @@ name: Post the queued Reel
 on:
   schedule:
     - cron: "0 15 * * *"   # morning slot: 9:00 am US Central (10:00 am during daylight saving)
-    - cron: "30 0 * * *"   # evening slot: 6:30 pm US Central (7:30 pm during daylight saving)
+    - cron: "30 3 * * *"   # evening slot backup: 9:30 pm US Central (10:30 pm during daylight saving)
   workflow_dispatch:
     inputs:
       dry_run:
