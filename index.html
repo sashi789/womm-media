@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Works On My Machine: Reel queue</title>
+<style>
+  :root {
+    --bg: #0b1220; --panel: #131d33; --panel-2: #1a2742; --line: #263556;
+    --text: #f1ecdf; --muted: #9fb0c8; --orange: #ff9900; --green: #6fd08c; --red: #ff6b6b; --blue: #6aa9ff;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--text); font: 16px/1.5 -apple-system, "Avenir Next", "Segoe UI", system-ui, sans-serif; }
+  a { color: var(--blue); }
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 24px 16px 64px; }
+  header h1 { font-size: 26px; margin: 0 0 2px; letter-spacing: -0.01em; }
+  header p { margin: 0; color: var(--muted); font-size: 14px; }
+  .tag { display: inline-block; background: var(--orange); color: #0b1220; font-weight: 800; font-size: 11px; letter-spacing: 0.06em;
+         padding: 3px 10px; border-radius: 999px; margin-bottom: 10px; }
+  .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; margin: 20px 0 8px; }
+  .stat { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 12px 14px; }
+  .stat b { display: block; font-size: 24px; font-variant-numeric: tabular-nums; }
+  .stat span { color: var(--muted); font-size: 13px; }
+  .stat.next b { font-size: 17px; line-height: 1.3; }
+  h2 { font-size: 18px; margin: 32px 0 4px; }
+  h3.day { font-size: 13px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); margin: 22px 0 10px; font-weight: 700; }
+  h3.day em { font-style: normal; color: var(--orange); }
+  .cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 14px; }
+  .card { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 14px; display: grid;
+          grid-template-columns: 124px 1fr; gap: 14px; align-items: start; }
+  .card video { width: 124px; aspect-ratio: 9 / 16; border-radius: 10px; background: #000; display: block; }
+  .novideo { width: 124px; aspect-ratio: 9 / 16; border-radius: 10px; background: var(--panel-2); color: var(--muted);
+             display: grid; place-items: center; font-size: 12px; text-align: center; padding: 8px; }
+  .when { font-size: 13px; color: var(--muted); display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+  .pill { font-size: 11px; font-weight: 800; letter-spacing: 0.05em; text-transform: uppercase; padding: 2px 8px; border-radius: 999px; }
+  .pill.queued { background: rgba(111, 208, 140, 0.16); color: var(--green); }
+  .pill.posted { background: rgba(106, 169, 255, 0.16); color: var(--blue); }
+  .pill.held { background: rgba(255, 153, 0, 0.18); color: var(--orange); }
+  .pill.post_failed { background: rgba(255, 107, 107, 0.18); color: var(--red); }
+  .title { font-weight: 700; margin: 6px 0 6px; line-height: 1.35; overflow-wrap: anywhere; }
+  details { margin-top: 6px; }
+  summary { cursor: pointer; color: var(--blue); font-size: 14px; }
+  .caption { white-space: pre-wrap; overflow-wrap: anywhere; font-size: 14px; color: #dfe6f2; background: var(--panel-2);
+             border-radius: 10px; padding: 10px 12px; margin-top: 8px; }
+  .meta { font-size: 12px; color: var(--muted); margin-top: 8px; }
+  .err { color: var(--red); font-size: 13px; margin-top: 6px; overflow-wrap: anywhere; }
+  table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  .tablewrap { overflow-x: auto; background: var(--panel); border: 1px solid var(--line); border-radius: 14px; margin-top: 10px; }
+  th, td { text-align: left; padding: 10px 14px; border-bottom: 1px solid var(--line); white-space: nowrap; }
+  th { color: var(--muted); font-size: 12px; text-transform: uppercase; letter-spacing: 0.06em; font-weight: 700; }
+  tr:last-child td { border-bottom: 0; }
+  td.num { text-align: right; font-variant-numeric: tabular-nums; }
+  th.num { text-align: right; }
+  .note { background: var(--panel); border: 1px solid var(--line); border-left: 4px solid var(--orange); border-radius: 10px;
+          padding: 12px 14px; color: #dfe6f2; font-size: 14px; margin-top: 12px; }
+  .empty { color: var(--muted); padding: 14px 0; }
+  footer { margin-top: 36px; color: var(--muted); font-size: 13px; }
+  @media (max-width: 420px) { .card { grid-template-columns: 96px 1fr; } .card video, .novideo { width: 96px; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="tag">WORKS ON MY MACHINE</div>
+    <h1>Reel queue</h1>
+    <p id="sub">Loading…</p>
+  </header>
+  <div class="stats" id="stats"></div>
+  <div id="problems"></div>
+  <h2>Coming up</h2>
+  <div id="upcoming"></div>
+  <h2>Posted</h2>
+  <div id="posted"></div>
+  <footer id="foot"></footer>
+</div>
+<script>
+const bust = () => "?t=" + Date.now();
+const getJSON = (p) => fetch(p + bust()).then((r) => (r.ok ? r.json() : null)).catch(() => null);
+const getText = (p) => fetch(p + bust()).then((r) => (r.ok ? r.text() : null)).catch(() => null);
+const el = (tag, cls, text) => { const e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; };
+
+function parseCaption(raw) {
+  if (!raw) return { title: "", body: "", thumb: 0 };
+  let thumb = 0, body = raw;
+  const cut = raw.indexOf("\n---\n");
+  if (cut !== -1) {
+    const m = raw.slice(0, cut).match(/thumb_seconds:\s*([\d.]+)/);
+    if (m) thumb = parseFloat(m[1]);
+    body = raw.slice(cut + 5);
+  }
+  body = body.trim();
+  return { title: body.split("\n")[0], body, thumb };
+}
+
+function dayLabel(dateStr, todayStr) {
+  const d = new Date(dateStr + "T12:00:00");
+  const nice = d.toLocaleDateString("en-US", { weekday: "long", month: "short", day: "numeric" });
+  const diff = Math.round((new Date(dateStr + "T12:00:00") - new Date(todayStr + "T12:00:00")) / 86400000);
+  return { nice, rel: diff === 0 ? "Today" : diff === 1 ? "Tomorrow" : diff < 0 ? "Overdue" : "" };
+}
+
+async function main() {
+  const [cfg, sched, insights, log] = await Promise.all([
+    getJSON("config.json"), getJSON("schedule.json"), getJSON("insights.json"), getText("published.log"),
+  ]);
+  if (!sched) { document.getElementById("sub").textContent = "Could not load the schedule."; return; }
+  const tz = (cfg && cfg.timezone) || "America/Chicago";
+  const slotTimes = (cfg && cfg.slot_times) || { am: "9:00 am", pm: "9:30 pm" };
+  const today = new Intl.DateTimeFormat("en-CA", { timeZone: tz }).format(new Date());
+  const order = { am: 0, pm: 1 };
+  const posts = sched.posts.slice().sort((a, b) => (a.date + (order[a.slot || "pm"])).localeCompare(b.date + order[b.slot || "pm"]));
+  const captions = {};
+  await Promise.all(posts.map(async (p) => { captions[p.name] = parseCaption(await getText("queue/" + p.name + ".txt")); }));
+
+  const upcoming = posts.filter((p) => p.status === "queued" || p.status === "held");
+  const failed = posts.filter((p) => p.status === "post_failed");
+  const next = upcoming.find((p) => p.status === "queued");
+
+  document.getElementById("sub").textContent =
+    "Posts go out at " + slotTimes.am + " and " + slotTimes.pm + " US Central. This page reads the live schedule each time it loads.";
+
+  // ---- stats
+  const stats = document.getElementById("stats");
+  const stat = (big, small, cls) => { const s = el("div", "stat" + (cls ? " " + cls : "")); s.append(el("b", null, big), el("span", null, small)); stats.append(s); };
+  if (next) {
+    const d = dayLabel(next.date, today);
+    stat((d.rel || d.nice) + ", " + slotTimes[next.slot || "pm"], "Next: " + (captions[next.name].title || next.name), "next");
+  } else stat("Nothing queued", "Next post", "next");
+  stat(String(upcoming.filter((p) => p.status === "queued").length), "Queued");
+  const lastQueued = upcoming.filter((p) => p.status === "queued").slice(-1)[0];
+  stat(lastQueued ? dayLabel(lastQueued.date, today).nice.replace(/^\w+, /, "") : "—", "Queue runs out after");
+  const postedCount = log ? log.trim().split("\n").filter(Boolean).length : 0;
+  stat(String(postedCount), "Posted so far");
+
+  // ---- problems
+  const prob = document.getElementById("problems");
+  if (failed.length) {
+    const n = el("div", "note");
+    n.append(el("b", null, failed.length + " post" + (failed.length > 1 ? "s" : "") + " failed: "), document.createTextNode(failed.map((p) => p.name + " (" + p.date + " " + (p.slot || "pm") + ")").join(", ") + ". They stay in the list below until they are queued again."));
+    prob.append(n);
+  }
+  const held = upcoming.filter((p) => p.status === "held");
+  if (held.length) prob.append(el("div", "note", held.length + " post" + (held.length > 1 ? "s are" : " is") + " on hold and will not go out until released."));
+
+  // ---- cards
+  function card(p) {
+    const c = el("div", "card"), cap = captions[p.name], right = el("div");
+    const v = el("video");
+    v.controls = true; v.playsInline = true; v.preload = "metadata";
+    v.src = "queue/" + p.name + ".mp4" + bust() + "#t=" + (cap.thumb || 0.1);
+    v.addEventListener("error", () => v.replaceWith(el("div", "novideo", "Video file not in the queue folder")));
+    const when = el("div", "when");
+    when.append(el("span", "pill " + p.status, p.status === "post_failed" ? "failed" : p.status), el("span", null, slotTimes[p.slot || "pm"] + " · " + (p.slot === "am" ? "morning" : "evening")));
+    right.append(when, el("div", "title", cap.title || p.name));
+    if (cap.body) {
+      const d = el("details");
+      d.append(el("summary", null, "Caption and hashtags"), el("div", "caption", cap.body));
+      right.append(d);
+    }
+    if (p.error) right.append(el("div", "err", p.error));
+    if (p.link) { const a = el("a", null, "Open on Instagram"); a.href = p.link; a.target = "_blank"; a.rel = "noopener"; const m = el("div", "meta"); m.append(a); right.append(m); }
+    right.append(el("div", "meta", "File: queue/" + p.name + ".mp4" + (cap.body ? " · caption " + cap.body.length + " characters" : "")));
+    c.append(v, right);
+    return c;
+  }
+  const up = document.getElementById("upcoming");
+  const list = upcoming.concat(failed).sort((a, b) => (a.date + order[a.slot || "pm"]).localeCompare(b.date + order[b.slot || "pm"]));
+  if (!list.length) up.append(el("div", "empty", "Nothing is queued. The next batch build will fill this."));
+  let lastDay = null, grid = null;
+  for (const p of list) {
+    if (p.date !== lastDay) {
+      const d = dayLabel(p.date, today), h = el("h3", "day");
+      if (d.rel) { h.append(el("em", null, d.rel), document.createTextNode(" · ")); }
+      h.append(document.createTextNode(d.nice));
+      grid = el("div", "cards");
+      up.append(h, grid);
+      lastDay = p.date;
+    }
+    grid.append(card(p));
+  }
+
+  // ---- posted
+  const reels = {};
+  ((insights && insights.reels) || []).forEach((r) => { reels[r.name] = r; });
+  const rows = (log || "").trim().split("\n").filter(Boolean).map((l) => l.trim().split(/\s+/)).filter((p) => p.length >= 5).reverse();
+  const postedBox = document.getElementById("posted");
+  if (!rows.length) postedBox.append(el("div", "empty", "Nothing posted yet."));
+  else {
+    const hasViews = insights && insights.insights_available;
+    const wrap = el("div", "tablewrap"), t = el("table"), head = el("tr");
+    ["Posted", "Reel", "Likes", "Comments"].concat(hasViews ? ["Views", "Shares", "Saves"] : []).forEach((h, i) => head.append(el("th", i >= 2 ? "num" : null, h)));
+    t.append(head);
+    for (const [date, time, name, , link] of rows) {
+      const r = reels[name] || {}, tr = el("tr");
+      const d = new Date(date + "T12:00:00").toLocaleDateString("en-US", { weekday: "short", month: "short", day: "numeric" });
+      const td = el("td"), a = el("a", null, (captions[name] && captions[name].title) || name);
+      a.href = link; a.target = "_blank"; a.rel = "noopener"; td.append(a); td.style.whiteSpace = "normal";
+      tr.append(el("td", null, d), td, el("td", "num", r.likes ?? "–"), el("td", "num", r.comments ?? "–"));
+      if (hasViews) tr.append(el("td", "num", r.views ?? "–"), el("td", "num", r.shares ?? "–"), el("td", "num", r.saved ?? "–"));
+      t.append(tr);
+    }
+    wrap.append(t); postedBox.append(wrap);
+    if (insights && !insights.insights_available)
+      postedBox.append(el("div", "note", "Views, shares, saves and watch time are not shown: the Instagram token does not have the insights permission yet."));
+  }
+
+  // ---- footer
+  const foot = document.getElementById("foot");
+  const hold = el("a", null, "Hold or release a post"); hold.href = "https://github.com/sashi789/womm-media/actions/workflows/hold.yml";
+  const runs = el("a", null, "posting runs"); runs.href = "https://github.com/sashi789/womm-media/actions";
+  foot.append(document.createTextNode("To stop a queued Reel: "), hold, document.createTextNode(" on GitHub. See all "), runs, document.createTextNode(". "));
+  if (insights && insights.pulled_at) foot.append(document.createTextNode("Numbers last collected " + insights.pulled_at + "."));
+}
+main();
+</script>
+</body>
+</html>
