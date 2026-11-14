@@ -41,6 +41,18 @@
       "slot": "pm",
       "name": "slowquery",
       "status": "queued"
+    },
+    {
+      "date": "2026-11-18",
+      "slot": "am",
+      "name": "dns",
+      "status": "queued"
+    },
+    {
+      "date": "2026-11-18",
+      "slot": "pm",
+      "name": "errmsg",
+      "status": "queued"
     }
   ]
 }

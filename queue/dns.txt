@@ -1,0 +1,11 @@
+thumb_seconds: 0.8
+---
+What is DNS? The internet's phone book, explained in 30 seconds.
+
+Computers find each other by number, not by name. DNS is the phone book: you give it a name like example.com and it gives back the number. Answers are remembered along the way, so most lookups never leave your device or your provider.
+
+Did you already know this one? Tell me in the comments.
+
+Follow @that_works_on_my_machine for more tech, explained simply.
+
+#dns #networking #techexplained #learntocode #internet

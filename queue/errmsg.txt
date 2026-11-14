@@ -1,0 +1,11 @@
+thumb_seconds: 0.8
+---
+"Unexpected error occurred." What error messages say vs what they really mean.
+
+"Unexpected error occurred" means we never planned for this one. "Something went wrong" means we don't know either. A 500 error means the problem is on the server side, not yours. "undefined is not a function" means you called something that isn't there.
+
+What is the most useless error message you have ever seen? Tell me in the comments.
+
+Follow @that_works_on_my_machine for more tech, explained simply.
+
+#developerhumor #programming #coding #softwareengineering #errors
