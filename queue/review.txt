@@ -1,0 +1,11 @@
+thumb_seconds: 0.8
+---
+"Looks good to me." What code review comments really mean.
+
+"Looks good to me" means I skimmed it. "Nit: rename this" means I would have named it differently. "Can we discuss offline?" means this will take a long meeting. "Interesting approach" means please don't do this again.
+
+Which code review comment do you dread? Tell me in the comments.
+
+Follow @that_works_on_my_machine for more tech, explained simply.
+
+#codereview #developerhumor #programming #softwareengineering #coding
