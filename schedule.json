@@ -53,6 +53,18 @@
       "slot": "pm",
       "name": "errmsg",
       "status": "queued"
+    },
+    {
+      "date": "2026-11-19",
+      "slot": "am",
+      "name": "chatbot",
+      "status": "queued"
+    },
+    {
+      "date": "2026-11-19",
+      "slot": "pm",
+      "name": "cert",
+      "status": "queued"
     }
   ]
 }

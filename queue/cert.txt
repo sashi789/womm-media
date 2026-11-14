@@ -1,0 +1,13 @@
+thumb_seconds: 0.8
+---
+Fine at 11:59. Dead at midnight. The expired certificate bug.
+
+Nobody deployed anything, but at midnight every visitor got a full page security warning. The cause was an HTTPS certificate, which proves a site is really yours. Every certificate has an expiry date and this one ran out. The fix: renew automatically and alert weeks before any expiry date. Public certificates are now limited to 200 days, so this date comes round more often than ever.
+
+(This is a realistic scenario, not a specific company's incident.)
+
+What is the smallest thing that ever broke your system? Tell me in the comments.
+
+Follow @that_works_on_my_machine for more tech, explained simply.
+
+#devops #https #softwareengineering #bugstory #security
