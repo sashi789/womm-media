@@ -1,0 +1,13 @@
+thumb_seconds: 0.8
+---
+3 a.m. Everything is slow. Nothing changed. The slow query that took the site down.
+
+No new release, but pages that took one second now took nine, then timed out. One database query was reading every row of a huge table to find a single customer's orders. It was fine at ten thousand rows and choked at forty million. The fix: add an index, like the index of a book.
+
+(This is a realistic scenario, not a specific company's incident.)
+
+What is the longest outage you have lived through? Tell me in the comments.
+
+Follow @that_works_on_my_machine for more tech, explained simply.
+
+#database #sql #softwareengineering #devops #bugstory

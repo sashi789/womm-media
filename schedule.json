@@ -29,6 +29,18 @@
       "slot": "pm",
       "name": "devsay",
       "status": "queued"
+    },
+    {
+      "date": "2026-11-17",
+      "slot": "am",
+      "name": "ec2",
+      "status": "queued"
+    },
+    {
+      "date": "2026-11-17",
+      "slot": "pm",
+      "name": "slowquery",
+      "status": "queued"
     }
   ]
 }

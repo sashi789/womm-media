@@ -1,0 +1,11 @@
+thumb_seconds: 0.8
+---
+Amazon EC2 in 30 seconds: rent a computer in minutes.
+
+Launch day, one server, and everyone shows up at once. A single computer can only handle so many people. EC2 lets you start more computers when traffic spikes and stop them when it drops. Linux instances are billed by the second.
+
+How many servers does your app run on? Tell me in the comments.
+
+Follow @that_works_on_my_machine for more tech, explained simply.
+
+#aws #ec2 #cloudcomputing #devops #techexplained
