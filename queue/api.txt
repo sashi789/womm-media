@@ -1,0 +1,11 @@
+thumb_seconds: 0.8
+---
+What is an API? Think of it as a waiter between you and the kitchen.
+
+You never walk into the kitchen. You tell the waiter what you want and the waiter brings it back. An API does that for apps: your weather app sends a short request, a server sends back plain data, and the app turns it into a picture.
+
+Which app do you open first each day? Tell me in the comments.
+
+Follow @that_works_on_my_machine for more tech, explained simply.
+
+#api #programming #techexplained #learntocode #softwareengineering

@@ -1,0 +1,11 @@
+thumb_seconds: 0.8
+---
+"It's a quick fix." What developers say vs what they actually mean.
+
+"It's a quick fix" means I haven't opened the code yet. "We'll clean it up later" means nobody ever will. "Just a small change" touches forty files. "Should be done today" means ask me again on Friday.
+
+Which one have you said this week? Tell me in the comments.
+
+Follow @that_works_on_my_machine for more tech, explained simply.
+
+#developerhumor #programming #softwareengineering #developerlife #coding

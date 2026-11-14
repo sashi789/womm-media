@@ -1,0 +1,11 @@
+thumb_seconds: 0.8
+---
+What is a server? It's just a computer. Really.
+
+It has the same parts as your laptop, but no screen and it never gets switched off. Its only job is to wait for requests from phones and laptops and send back answers. Every website you open is answered by one.
+
+Did you picture something much bigger? Tell me in the comments.
+
+Follow @that_works_on_my_machine for more tech, explained simply.
+
+#programming #servers #techexplained #learntocode #softwareengineering
