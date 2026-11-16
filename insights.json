@@ -1,7 +1,7 @@
 {
-  "pulled_at": "2026-11-16 04:43 UTC",
+  "pulled_at": "2026-11-16 22:47 UTC",
   "insights_available": false,
-  "insights_error": "Meta API error 400: {\"error\":{\"message\":\"(#10) Application does not have permission for this action\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"AXS5IaonvN2NwJBD0fKrLGM\"}}",
+  "insights_error": "Meta API error 400: {\"error\":{\"message\":\"(#10) Application does not have permission for this action\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"AGjCwizZ-Y81a3HhEKwKKp_\"}}",
   "reels": [
     {
       "date": "2026-11-12",
@@ -58,6 +58,14 @@
       "likes": 2,
       "comments": 0,
       "link": "https://www.instagram.com/reel/DfxmcOcNCou/"
+    },
+    {
+      "date": "2026-11-16",
+      "name": "api",
+      "media_id": "18008303840793923",
+      "likes": 1,
+      "comments": 0,
+      "link": "https://www.instagram.com/reel/DfzoQjavvgF/"
     }
   ]
 }
