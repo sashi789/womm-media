@@ -1,11 +1,24 @@
 thumb_seconds: 0.8
 ---
-How does a chatbot pick its next word? It doesn't know. It guesses.
+AI doesn't know. It guesses. | How a chatbot picks its next word
 
-It reads your words and scores every possible next word, then usually picks a likely one. Add that word, guess again, and repeat. Whole answers are built one word at a time, and it sounds smart because it has seen a huge amount of text.
+A chatbot is built on a language model. Its one job: given the text so far, predict what comes next.
+
+How it works, step by step:
+1. Text is cut into pieces called tokens
+2. The model scores every possible next piece
+3. It picks one, adds it to the text, and asks again, one piece at a time
+
+It learned by reading enormous amounts of text: guess the next piece, check the real text, nudge its internal numbers, repeat. There is no table of facts inside, just patterns stored in numbers.
+
+A setting called temperature controls how adventurous it is. Low: nearly always the top pick. High: sometimes lower picks, more creative and more mistakes. That is why asking twice can give two different answers.
+
+And because it picks what sounds likely, not what it has checked, it can sound fluent and still be wrong. Check anything that matters.
 
 What do you use AI for most? Tell me in the comments.
 
+Note: the probabilities and token splits shown are illustrative examples, not from a real model.
+Works On My Machine, Episode 14
 Follow @that_works_on_my_machine for more tech, explained simply.
 
-#ai #chatgpt #machinelearning #llm #techexplained
+#ai #chatgpt #machinelearning #techexplained #learntocode

@@ -1,11 +1,25 @@
 thumb_seconds: 0.8
 ---
-What is DNS? The internet's phone book, explained in 30 seconds.
+Websites don't have names. Only numbers. | How DNS turns a name into an address
 
-Computers find each other by number, not by name. DNS is the phone book: you give it a name like example.com and it gives back the number. Answers are remembered along the way, so most lookups never leave your device or your provider.
+Every computer on the internet has a number address, called an IP address. DNS is the system that turns the name you type into that number.
 
-Did you already know this one? Tell me in the comments.
+The journey of one lookup (example.com):
+1. Your phone asks a resolver, usually run by your internet provider
+2. The resolver asks a root server: who handles .com?
+3. The .com servers point to the site's own name server
+4. That name server answers with the address
+5. The resolver sends it back to you, and your browser connects
 
+Answers are remembered for a set time called the TTL, so the next visit skips the journey. It also means that when a site changes its address, old answers can linger until they expire.
+
+When DNS breaks, the server can be perfectly fine and nobody can reach it. Engineers joke: it's always DNS.
+
+Did you know how this works? Tell me in the comments.
+
+The address 203.0.113.7 is an example from a range reserved for documentation.
+Sources: IETF RFC 1034 (Domain Names: Concepts and Facilities), RFC 5737 (Documentation address blocks).
+Works On My Machine, Episode 12
 Follow @that_works_on_my_machine for more tech, explained simply.
 
-#dns #networking #techexplained #learntocode #internet
+#dns #networking #webdevelopment #learntocode #techexplained
