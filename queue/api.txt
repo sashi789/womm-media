@@ -1,11 +1,24 @@
 thumb_seconds: 0.8
 ---
-What is an API? Think of it as a waiter between you and the kitchen.
+Your weather app doesn't know the weather | So how does it tell you? APIs explained
 
-You never walk into the kitchen. You tell the waiter what you want and the waiter brings it back. An API does that for apps: your weather app sends a short request, a server sends back plain data, and the app turns it into a picture.
+It asks another computer, using the agreed rules called an API. Think of a restaurant: you (your app) tell the waiter (the API) what you want, and the kitchen (the other system) prepares it. The menu is everything you're allowed to ask for.
 
-Which app do you open first each day? Tell me in the comments.
+One real request, step by step:
+GET /weather?city=Mumbai
+- GET: I want to read something
+- /weather: which item on the menu
+- city=Mumbai: your details
+The server replies with a status code, 200 OK, and the data, usually JSON.
 
+Status codes: 200 it worked, 404 not found, 500 the server has a problem. Codes starting with 4 are your mistake, codes starting with 5 are theirs.
+
+Most APIs also use an API key (your ID card, so they know who is asking) and limit how often you can ask. Ask too fast and you get 429 Too Many Requests.
+
+Which app should I open up next? Tell me in the comments.
+
+Source: MDN Web Docs, HTTP response status codes.
+Works On My Machine, Episode 8
 Follow @that_works_on_my_machine for more tech, explained simply.
 
-#api #programming #techexplained #learntocode #softwareengineering
+#api #programming #webdevelopment #learntocode #techexplained
