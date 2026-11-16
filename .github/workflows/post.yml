@@ -1,8 +1,7 @@
 name: Post the queued Reel
 on:
-  schedule:
-    - cron: "0 15 * * *"   # morning slot: 9:00 am US Central (10:00 am during daylight saving)
-    - cron: "30 3 * * *"   # evening slot backup: 9:30 pm US Central (10:30 pm during daylight saving)
+  # Posting is triggered at exact times by cron-job.org through workflow_dispatch.
+  # GitHub's own scheduler was removed: it fires hours late and posted videos early.
   workflow_dispatch:
     inputs:
       dry_run:
