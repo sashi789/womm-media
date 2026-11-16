@@ -1,7 +1,7 @@
 {
-  "pulled_at": "2026-11-15 19:17 UTC",
+  "pulled_at": "2026-11-16 04:43 UTC",
   "insights_available": false,
-  "insights_error": "Meta API error 400: {\"error\":{\"message\":\"(#10) Application does not have permission for this action\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"AK5jC3BaHUXyndYQ4NUyds9\"}}",
+  "insights_error": "Meta API error 400: {\"error\":{\"message\":\"(#10) Application does not have permission for this action\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"AXS5IaonvN2NwJBD0fKrLGM\"}}",
   "reels": [
     {
       "date": "2026-11-12",
@@ -47,9 +47,17 @@
       "date": "2026-11-15",
       "name": "server",
       "media_id": "18012131447779136",
-      "likes": 1,
+      "likes": 2,
       "comments": 0,
       "link": "https://www.instagram.com/reel/DfwqrHsBcFA/"
+    },
+    {
+      "date": "2026-11-15",
+      "name": "womm",
+      "media_id": "18113842562618699",
+      "likes": 2,
+      "comments": 0,
+      "link": "https://www.instagram.com/reel/DfxmcOcNCou/"
     }
   ]
 }
