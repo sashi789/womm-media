@@ -1,11 +1,20 @@
 #!/usr/bin/env python3
 """Post today's queued Reel. Posts at most one video, never the same video twice."""
 import os
+from datetime import datetime
+from zoneinfo import ZoneInfo
 import sys
 import time
 import urllib.request
 
 from ci_common import CFG, GRAPH, ROOT, call, load_schedule, save_schedule, slot, today, token
+
+def within_window(when, now):
+    """GitHub's own scheduler can fire hours late; only post inside the slot's real window (local time)."""
+    mins = now.hour * 60 + now.minute
+    lo, hi = (9 * 60, 14 * 60) if when == "am" else (21 * 60 + 30, 24 * 60)
+    return lo <= mins < hi
+
 
 DRY = os.environ.get("DRY_RUN", "").lower() in ("1", "true", "yes")
 
@@ -16,6 +25,11 @@ def main():
     if (ROOT / "HOLD").exists():
         print("A HOLD file is present: all posting is paused.")
         return
+    if os.environ.get("GITHUB_EVENT_NAME") == "schedule" and not DRY:
+        now = datetime.now(ZoneInfo(CFG["timezone"]))
+        if not within_window(when, now):
+            print(f"Scheduled run at {now:%H:%M} local is outside the {when} window (am 09:00 to 14:00, pm 21:30 to midnight); not posting.")
+            return
     entry = next((p for p in sched["posts"] if p["date"] == day and p.get("slot", "pm") == when
                   and p["status"] == "queued"), None)
     if entry is None:
