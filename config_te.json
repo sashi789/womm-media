@@ -1,0 +1,11 @@
+{
+  "ig_user_id": "",
+  "username": "",
+  "api_version": "v23.0",
+  "timezone": "America/Chicago",
+  "base_url": "https://sashi789.github.io/womm-media",
+  "slot_times": {
+    "am": "9:00 am",
+    "pm": "9:30 pm"
+  }
+}

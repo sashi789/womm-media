@@ -19,10 +19,16 @@ jobs:
       - env:
           IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
         run: python scripts/ci_insights.py
+      - name: Telugu page numbers (skipped until that page is set up)
+        continue-on-error: true
+        env:
+          ACCOUNT: te
+          IG_ACCESS_TOKEN_TE: ${{ secrets.IG_ACCESS_TOKEN_TE }}
+        run: python scripts/ci_insights.py
       - name: Save results
         if: always()
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add schedule.json published.log insights.json 2>/dev/null || git add -u
+          git add schedule.json published.log insights.json schedule_te.json published_te.log insights_te.json queue_te 2>/dev/null || git add -u
           git diff --cached --quiet || (git commit -m "Update posting state" && git pull --rebase && git push)

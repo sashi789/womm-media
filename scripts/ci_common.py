@@ -10,9 +10,17 @@ from pathlib import Path
 from zoneinfo import ZoneInfo
 
 ROOT = Path(__file__).resolve().parent.parent
-CFG = json.loads((ROOT / "config.json").read_text())
+# ACCOUNT selects which Instagram page this run is for: "" or "en" is the English page (the default,
+# unchanged behaviour); "te" is the Telugu page, with its own config, schedule, log, queue folder and token.
+ACCOUNT = os.environ.get("ACCOUNT", "").strip().lower()
+SUFFIX = "_te" if ACCOUNT == "te" else ""
+CFG = json.loads((ROOT / f"config{SUFFIX}.json").read_text())
 GRAPH = f"https://graph.facebook.com/{CFG['api_version']}"
-SCHEDULE = ROOT / "schedule.json"
+SCHEDULE = ROOT / f"schedule{SUFFIX}.json"
+LOG = ROOT / f"published{SUFFIX}.log"
+QUEUE = ROOT / f"queue{SUFFIX}"
+INSIGHTS = ROOT / f"insights{SUFFIX}.json"
+TOKEN_ENV = "IG_ACCESS_TOKEN_TE" if ACCOUNT == "te" else "IG_ACCESS_TOKEN"
 
 
 def today():
@@ -28,9 +36,9 @@ def slot():
 
 
 def token():
-    tok = os.environ.get("IG_ACCESS_TOKEN", "").strip()
+    tok = os.environ.get(TOKEN_ENV, "").strip()
     if not tok:
-        sys.exit("The IG_ACCESS_TOKEN secret is not set for this repository.")
+        sys.exit(f"The {TOKEN_ENV} secret is not set for this repository.")
     return tok
 
 

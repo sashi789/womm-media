@@ -16,6 +16,11 @@ on:
         type: choice
         options: [auto, am, pm]
         default: auto
+      account:
+        description: "Which Instagram page: en (English, the default) or te (Telugu)"
+        type: choice
+        options: [en, te]
+        default: en
 permissions:
   contents: write
 concurrency: womm-state
@@ -32,6 +37,8 @@ jobs:
       - name: Post
         env:
           IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
+          IG_ACCESS_TOKEN_TE: ${{ secrets.IG_ACCESS_TOKEN_TE }}
+          ACCOUNT: ${{ github.event_name == 'workflow_dispatch' && inputs.account || 'en' }}
           DRY_RUN: ${{ github.event_name == 'workflow_dispatch' && inputs.dry_run || 'false' }}
           TODAY: ${{ github.event_name == 'workflow_dispatch' && inputs.dry_run && inputs.date || '' }}
           SLOT: ${{ github.event_name == 'workflow_dispatch' && inputs.slot || 'auto' }}
@@ -41,5 +48,5 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add schedule.json published.log insights.json 2>/dev/null || git add -u
+          git add schedule.json published.log insights.json schedule_te.json published_te.log insights_te.json queue_te 2>/dev/null || git add -u
           git diff --cached --quiet || (git commit -m "Update posting state" && git pull --rebase && git push)

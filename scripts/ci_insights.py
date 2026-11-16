@@ -3,11 +3,11 @@
 import json
 import time
 
-from ci_common import GRAPH, ROOT, call, token
+from ci_common import GRAPH, INSIGHTS, LOG, call, token
 
 METRICS = "views,reach,saved,shares,total_interactions,ig_reels_avg_watch_time"
 tok, rows, problem = token(), [], None
-log = ROOT / "published.log"
+log = LOG
 for line in log.read_text().splitlines() if log.exists() else []:
     parts = line.split()
     if len(parts) < 4:
@@ -30,5 +30,5 @@ for line in log.read_text().splitlines() if log.exists() else []:
     rows.append(row)
 out = {"pulled_at": time.strftime("%Y-%m-%d %H:%M UTC", time.gmtime()), "insights_available": problem is None,
        "insights_error": problem, "reels": rows}
-(ROOT / "insights.json").write_text(json.dumps(out, indent=2) + "\n")
+INSIGHTS.write_text(json.dumps(out, indent=2) + "\n")
 print(json.dumps(out, indent=2))

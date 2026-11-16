@@ -7,7 +7,7 @@ import sys
 import time
 import urllib.request
 
-from ci_common import CFG, GRAPH, ROOT, call, load_schedule, save_schedule, slot, today, token
+from ci_common import CFG, GRAPH, LOG, QUEUE, ROOT, SUFFIX, call, load_schedule, save_schedule, slot, today, token
 
 def within_window(when, now):
     """GitHub's own scheduler can fire hours late; only post inside the slot's real window (local time)."""
@@ -22,8 +22,8 @@ DRY = os.environ.get("DRY_RUN", "").lower() in ("1", "true", "yes")
 def main():
     day, when = today(), slot()
     sched = load_schedule()
-    if (ROOT / "HOLD").exists():
-        print("A HOLD file is present: all posting is paused.")
+    if (ROOT / "HOLD").exists() or (SUFFIX and (ROOT / f"HOLD{SUFFIX}").exists()):
+        print("A HOLD file is present: posting is paused.")
         return
     if os.environ.get("GITHUB_EVENT_NAME") == "schedule" and not DRY:
         now = datetime.now(ZoneInfo(CFG["timezone"]))
@@ -37,7 +37,7 @@ def main():
         print(f"Nothing to post for {day} {when}. Entries for today: {states or 'none'}")
         return
     name = entry["name"]
-    log = ROOT / "published.log"
+    log = LOG
     done = [l.split() for l in log.read_text().splitlines()] if log.exists() else []
     if any(len(p) > 2 and p[2] == name for p in done):
         entry["status"] = "posted"
@@ -45,15 +45,15 @@ def main():
         print(f"{name} is already in published.log; not posting again.")
         return
 
-    video, cap = ROOT / "queue" / f"{name}.mp4", ROOT / "queue" / f"{name}.txt"
+    video, cap = QUEUE / f"{name}.mp4", QUEUE / f"{name}.txt"
     if not video.exists() or not cap.exists():
-        raise RuntimeError(f"queue/{name}.mp4 or queue/{name}.txt is missing")
+        raise RuntimeError(f"{QUEUE.name}/{name}.mp4 or {QUEUE.name}/{name}.txt is missing")
     text, meta = cap.read_text(), {}
     if "\n---\n" in text:
         head, text = text.split("\n---\n", 1)
         meta = {k.strip(): v.strip() for k, v in (l.split(":", 1) for l in head.splitlines() if ":" in l)}
     caption = text.strip()
-    url = f"{CFG['base_url']}/queue/{name}.mp4"
+    url = f"{CFG['base_url']}/{QUEUE.name}/{name}.mp4"
     with urllib.request.urlopen(urllib.request.Request(url, method="HEAD"), timeout=60) as r:
         if int(r.headers.get("Content-Length", 0)) != video.stat().st_size:
             raise RuntimeError(f"{url} is not serving the queued file yet")

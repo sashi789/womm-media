@@ -15,6 +15,11 @@ on:
         type: choice
         options: [both, am, pm]
         default: both
+      account:
+        description: "Which Instagram page: en (English, the default) or te (Telugu)"
+        type: choice
+        options: [en, te]
+        default: en
 permissions:
   contents: write
 concurrency: womm-state
@@ -28,11 +33,13 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - run: python scripts/ci_hold.py "${{ inputs.action }}" "${{ inputs.date }}" "${{ inputs.slot }}"
+      - env:
+          ACCOUNT: ${{ inputs.account }}
+        run: python scripts/ci_hold.py "${{ inputs.action }}" "${{ inputs.date }}" "${{ inputs.slot }}"
       - name: Save results
         if: always()
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add schedule.json published.log insights.json 2>/dev/null || git add -u
+          git add schedule.json published.log insights.json schedule_te.json published_te.log insights_te.json queue_te 2>/dev/null || git add -u
           git diff --cached --quiet || (git commit -m "Update posting state" && git pull --rebase && git push)
