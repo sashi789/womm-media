@@ -1,7 +1,7 @@
 {
-  "pulled_at": "2026-11-16 22:47 UTC",
+  "pulled_at": "2026-11-17 21:34 UTC",
   "insights_available": false,
-  "insights_error": "Meta API error 400: {\"error\":{\"message\":\"(#10) Application does not have permission for this action\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"AGjCwizZ-Y81a3HhEKwKKp_\"}}",
+  "insights_error": "Meta API error 400: {\"error\":{\"message\":\"(#10) Application does not have permission for this action\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"AFKOin8kigubSNuEa55pQYR\"}}",
   "reels": [
     {
       "date": "2026-11-12",
@@ -66,6 +66,22 @@
       "likes": 1,
       "comments": 0,
       "link": "https://www.instagram.com/reel/DfzoQjavvgF/"
+    },
+    {
+      "date": "2026-11-16",
+      "name": "devsay",
+      "media_id": "18133931491871291",
+      "likes": 0,
+      "comments": 0,
+      "link": "https://www.instagram.com/reel/Df0-JRti6gu/"
+    },
+    {
+      "date": "2026-11-17",
+      "name": "ec2",
+      "media_id": "17962882341257638",
+      "likes": 2,
+      "comments": 0,
+      "link": "https://www.instagram.com/reel/Df2NAEqpOB7/"
     }
   ]
 }
