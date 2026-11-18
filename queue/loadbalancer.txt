@@ -1,0 +1,21 @@
+thumb_seconds: 0.8
+---
+A server died mid-sale. Nobody noticed. | How a load balancer keeps apps online
+
+A load balancer is one address in front of many servers. Users talk to it, and it hands each request to one server behind it.
+
+How it works (AWS Elastic Load Balancing):
+1. Round robin is the default: request 1 to server A, 2 to B, 3 to C, then back to A
+2. It checks every server's health page, every 30 seconds by default
+3. After 2 failed checks in a row a server is taken out of rotation; after 5 passes in a row it returns
+4. Application Load Balancer reads web requests (/cart to one group, /pay to another); Network Load Balancer passes raw connections along, very fast
+
+Classic mistake: keeping a login in one server's memory. The next request lands on another server and you are logged out. Keep sessions in a shared database or cache.
+
+Has your favourite app ever gone down? Tell me in the comments.
+
+Sources: AWS Elastic Load Balancing documentation, "Health checks for Application Load Balancer target groups" and "Target groups for your Application Load Balancers".
+Works On My Machine, Episode 17
+Follow @that_works_on_my_machine for more tech, explained simply.
+
+#aws #loadbalancer #devops #cloudcomputing #techexplained

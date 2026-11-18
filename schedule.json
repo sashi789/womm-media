@@ -89,6 +89,18 @@
       "slot": "pm",
       "name": "cert",
       "status": "queued"
+    },
+    {
+      "date": "2026-11-20",
+      "slot": "am",
+      "name": "upi",
+      "status": "queued"
+    },
+    {
+      "date": "2026-11-20",
+      "slot": "pm",
+      "name": "loadbalancer",
+      "status": "queued"
     }
   ]
 }

@@ -1,0 +1,23 @@
+thumb_seconds: 0.8
+---
+You tap Pay. Two banks agree in seconds. | How a UPI payment moves money
+
+Your bank and the shop's bank never talk directly. NPCI sits in the middle and passes the messages.
+
+Paying Rs 250 for chai, step by step (simplified):
+1. You scan the QR and approve with your UPI PIN, which your bank checks
+2. The request goes through NPCI to your bank, which checks your balance and takes Rs 250 out
+3. NPCI asks the shop's bank to put Rs 250 in
+4. Both banks send back a yes, and your app shows "payment successful"
+
+The real cash moves later: banks settle with each other in batches, and only the net difference moves.
+
+If money is cut but the payment fails, it should be reversed automatically. RBI's rule: by the next working day, or the bank owes you Rs 100 for each day it is late.
+
+Which UPI app do you use? Tell me in the comments.
+
+Sources: RBI circular on turnaround time and compensation for failed transactions (20 Sep 2019, DPSS.CO.PD No.629); RBI payment systems material on UPI deferred net settlement; NPCI UPI documentation. The flow is simplified and real apps add more checks.
+Works On My Machine, Episode 16
+Follow @that_works_on_my_machine for more tech, explained simply.
+
+#upi #fintech #howitworks #learntocode #techexplained
