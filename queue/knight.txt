@@ -1,0 +1,23 @@
+thumb_seconds: 0.8
+---
+45 minutes. One forgotten server. | How a deployment mistake cost $460 million
+
+On August 1, 2012, Knight Capital lost more than $460 million in about 45 minutes. Not a hack. A deployment.
+
+What the SEC found:
+1. New code was copied to 7 of the 8 servers that route orders. One technician missed the eighth, and nobody reviewed the deployment
+2. The new feature reused an old on/off flag that used to control a retired feature called Power Peg. That old code was still on the servers
+3. On the eighth server, the flag woke the old code. Its stop counter had been moved years earlier and never retested, so it never stopped
+4. 212 orders became millions of trades: over 4 million executions in 154 stocks
+5. 97 automatic emails saying "Power Peg disabled" arrived before the market opened. They were not designed as alerts and weren't acted on
+6. Rolling back the new code from the 7 good servers made it worse
+
+Lessons: a second person reviews every deploy, delete dead code instead of reusing its flag, and alerts must reach a human who acts.
+
+Would your team have caught it? Tell me in the comments.
+
+Source: SEC order, In the Matter of Knight Capital Americas LLC, Release No. 34-70694 (October 16, 2013). Knight paid a $12 million penalty.
+Works On My Machine, Episode 21
+Follow @that_works_on_my_machine for more tech, explained simply.
+
+#softwareengineering #devops #casestudy #deployment #techexplained

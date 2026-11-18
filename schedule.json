@@ -113,6 +113,18 @@
       "slot": "pm",
       "name": "standup",
       "status": "queued"
+    },
+    {
+      "date": "2026-11-22",
+      "slot": "am",
+      "name": "hallucination",
+      "status": "queued"
+    },
+    {
+      "date": "2026-11-22",
+      "slot": "pm",
+      "name": "knight",
+      "status": "queued"
     }
   ]
 }

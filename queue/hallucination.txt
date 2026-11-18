@@ -1,0 +1,21 @@
+thumb_seconds: 0.8
+---
+Confident. Fluent. Wrong. | Why AI makes things up
+
+In 2023, two New York lawyers filed a court brief with six cases found by ChatGPT. None of the cases existed, and the judge fined them $5,000.
+
+Why it happens:
+1. A chatbot doesn't look facts up. It writes the next word that is likely to fit, based on patterns in its training text
+2. A made-up case name looks exactly like a real one, because the model knows what those look like
+3. Rare facts (a birthday seen once) have no pattern to learn, so it fills the gap
+4. Models are graded like an exam where a blank answer scores zero, so guessing beats saying "I don't know"
+
+What helps: give it the source text, check every name, number, quote and citation, and ask it to say when it isn't sure. That reduces the risk but doesn't remove it.
+
+Has AI ever confidently lied to you? Tell me in the comments.
+
+Sources: Judge Castel's sanctions order, Mata v. Avianca (S.D.N.Y., June 22, 2023); OpenAI, "Why language models hallucinate" (September 5, 2025).
+Works On My Machine, Episode 20
+Follow @that_works_on_my_machine for more tech, explained simply.
+
+#ai #chatgpt #llm #machinelearning #techexplained
