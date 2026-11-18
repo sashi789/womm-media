@@ -1,0 +1,19 @@
+thumb_seconds: 0.8
+---
+Every app is a list with rules. | How a database works
+
+A database is an organised place to keep data: tables of rows and columns, like a very strict spreadsheet.
+
+What to know:
+1. Each table holds one kind of thing (users). A row is one user, a column is one fact, and an id makes every row unique
+2. You ask with SQL: SELECT email FROM users WHERE id = 2
+3. Strict rules: a unique email can't be added twice, and an age column refuses the word "banana"
+4. An index works like a book's index, so a lookup skips reading a million rows
+5. A transaction means all steps happen or none do, so a crash mid-payment doesn't lose money
+
+What was your first database? Tell me in the comments.
+
+Works On My Machine, Episode 18
+Follow @that_works_on_my_machine for more tech, explained simply.
+
+#database #sql #learntocode #webdevelopment #techexplained

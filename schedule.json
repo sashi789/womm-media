@@ -101,6 +101,18 @@
       "slot": "pm",
       "name": "loadbalancer",
       "status": "queued"
+    },
+    {
+      "date": "2026-11-21",
+      "slot": "am",
+      "name": "database",
+      "status": "queued"
+    },
+    {
+      "date": "2026-11-21",
+      "slot": "pm",
+      "name": "standup",
+      "status": "queued"
     }
   ]
 }

@@ -1,0 +1,12 @@
+thumb_seconds: 0.8
+---
+"No blockers." What standup updates really mean.
+
+"No blockers" means I'm stuck, but I'd rather not say. "Same as yesterday" means still stuck. "Almost done" means I haven't started the hard part. "I'll take a look" means I will forget this by lunch.
+
+Which standup line do you use? Tell me in the comments.
+
+Works On My Machine, Episode 19
+Follow @that_works_on_my_machine for more tech, explained simply.
+
+#developerhumor #programming #standup #softwareengineering #devlife
