@@ -1,0 +1,12 @@
+thumb_seconds: 0.8
+---
+"It's only two points." What sprint planning really means.
+
+"It's only two points" means I haven't read the code yet. "We can fit it in" means someone is working this weekend. "Small refactor" means everything will move. "Let's add a buffer" means we already know it's late.
+
+What is the biggest underestimate you have seen? Tell me in the comments.
+
+Works On My Machine, Episode 23
+Follow @that_works_on_my_machine for more tech, explained simply.
+
+#developerhumor #programming #agile #softwareengineering #devlife

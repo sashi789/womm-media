@@ -1,0 +1,21 @@
+thumb_seconds: 0.8
+---
+The intern could delete the database. | How AWS IAM decides who can do what
+
+IAM (Identity and Access Management) answers three questions on every request: who is asking, to do what, on which thing.
+
+How it works:
+1. Rules are written as policies: Effect (Allow or Deny), Action (like s3:GetObject), Resource (which bucket)
+2. Everything is denied by default. If no policy says yes, the answer is no
+3. An explicit Deny always beats any Allow, which is how you build guard rails
+4. Apps should use roles, which give temporary credentials, instead of secret keys pasted into code
+
+Classic mistakes: a policy with "Action": "*" on "Resource": "*", and using the root user day to day. Root has full access, so protect it with MFA and use limited users or roles.
+
+Who has admin access where you work? Tell me in the comments.
+
+Source: AWS IAM User Guide, "Policy evaluation logic" and "How AWS enforcement code logic evaluates requests to allow or deny access".
+Works On My Machine, Episode 22
+Follow @that_works_on_my_machine for more tech, explained simply.
+
+#aws #iam #cloudsecurity #devops #techexplained
