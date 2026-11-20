@@ -1,7 +1,7 @@
 {
-  "pulled_at": "2026-11-19 21:14 UTC",
+  "pulled_at": "2026-11-20 20:57 UTC",
   "insights_available": false,
-  "insights_error": "Meta API error 400: {\"error\":{\"message\":\"(#10) Application does not have permission for this action\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"AOSFLLrPyyNIxux4jEkZztv\"}}",
+  "insights_error": "Meta API error 400: {\"error\":{\"message\":\"(#10) Application does not have permission for this action\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"AYSDZJ5QocWB2P7WSlpGN0Z\"}}",
   "reels": [
     {
       "date": "2026-11-12",
@@ -114,6 +114,22 @@
       "likes": 3,
       "comments": 0,
       "link": "https://www.instagram.com/reel/Df7WnTshBie/"
+    },
+    {
+      "date": "2026-11-19",
+      "name": "cert",
+      "media_id": "18432388153144252",
+      "likes": 2,
+      "comments": 0,
+      "link": "https://www.instagram.com/reel/Df8sbNzoXBB/"
+    },
+    {
+      "date": "2026-11-20",
+      "name": "upi",
+      "media_id": "17923177938446891",
+      "likes": 1,
+      "comments": 0,
+      "link": "https://www.instagram.com/reel/Df97Z8lBabK/"
     }
   ]
 }
