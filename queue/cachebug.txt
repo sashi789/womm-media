@@ -1,0 +1,21 @@
+thumb_seconds: 0.8
+---
+You logged in. As someone else. | How can a cache show one user another user's page?
+
+A realistic scenario, not a claim about any company: a slow account page gets a cache, and the cache key is only the address, /account. Ana opens her page and it is saved. Ben opens his, and the cache hands him Ana's page: her name, her email, her orders.
+
+Why it happens: the page depends on who is logged in, but the cache key doesn't say who is asking.
+
+The fix:
+1. Purge the cache and sign everyone out
+2. Mark personal pages Cache-Control: private, no-store
+3. Cache only pages that are identical for everyone, or put the user in the key
+And test with two accounts, not one.
+
+What's the scariest bug you've shipped? Tell me in the comments.
+
+Reference: HTTP caching guidance on Cache-Control and Vary (MDN, RFC 9111).
+Works On My Machine, Episode 25
+Follow @that_works_on_my_machine for more tech, explained simply.
+
+#softwareengineering #webdevelopment #caching #bugs #techexplained

@@ -149,6 +149,30 @@
       "slot": "pm",
       "name": "sprint",
       "status": "queued"
+    },
+    {
+      "date": "2026-11-24",
+      "slot": "am",
+      "name": "pypi",
+      "status": "queued"
+    },
+    {
+      "date": "2026-11-24",
+      "slot": "pm",
+      "name": "cachebug",
+      "status": "queued"
+    },
+    {
+      "date": "2026-11-25",
+      "slot": "am",
+      "name": "tatkal",
+      "status": "queued"
+    },
+    {
+      "date": "2026-11-25",
+      "slot": "pm",
+      "name": "quickcall",
+      "status": "queued"
     }
   ]
 }

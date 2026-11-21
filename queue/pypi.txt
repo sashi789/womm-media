@@ -1,0 +1,21 @@
+thumb_seconds: 0.8
+---
+33 minutes, 2 poisoned releases | How can a pip install steal your cloud keys?
+
+On Nov 17, 2026, versions 1.26.1 and 1.26.2 of the agent-framework Python package on PyPI shipped with a credential stealer, published 33 minutes apart. The last clean version is 1.26.0.
+
+How it worked:
+1. The package dropped a tiny .pth file into site-packages
+2. Python runs any line in a .pth file that starts with "import" every time it starts, even if you never import the package
+3. The code read environment variables (TOKEN, SECRET, KEY, AWS, AZURE), login files such as .npmrc, .git-credentials and .env, and requested fresh cloud identity tokens
+4. Everything was sent out in one HTTPS request
+
+What to do: search your lock files for 1.26.1 or 1.26.2, treat any machine that installed them as exposed and rotate its secrets, pin exact versions, and wait a few days before adopting brand new releases.
+
+Do you pin your dependencies? Tell me in the comments.
+
+Sources: Chainguard and Socket Research write-ups (Nov 17, 2026), SecurityWeek, Help Net Security. Details may change as the investigation continues.
+Works On My Machine, Episode 24
+Follow @that_works_on_my_machine for more tech, explained simply.
+
+#python #cybersecurity #supplychain #softwareengineering #techexplained
