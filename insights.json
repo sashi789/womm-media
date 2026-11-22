@@ -1,7 +1,7 @@
 {
-  "pulled_at": "2026-11-21 19:59 UTC",
+  "pulled_at": "2026-11-22 20:12 UTC",
   "insights_available": false,
-  "insights_error": "Meta API error 400: {\"error\":{\"message\":\"(#10) Application does not have permission for this action\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"AusHjK8QTchheQKiW8cFuqH\"}}",
+  "insights_error": "Meta API error 400: {\"error\":{\"message\":\"(#10) Application does not have permission for this action\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"AO7wy5vi5DjNGMG0JY3OcTx\"}}",
   "reels": [
     {
       "date": "2026-11-12",
@@ -146,6 +146,22 @@
       "likes": 1,
       "comments": 0,
       "link": "https://www.instagram.com/reel/DgAgOTyzsy_/"
+    },
+    {
+      "date": "2026-11-21",
+      "name": "standup",
+      "media_id": "18130819459876803",
+      "likes": 2,
+      "comments": 0,
+      "link": "https://www.instagram.com/reel/DgB2CK1uruT/"
+    },
+    {
+      "date": "2026-11-22",
+      "name": "hallucination",
+      "media_id": "18128629016314393",
+      "likes": 0,
+      "comments": 0,
+      "link": "https://www.instagram.com/reel/DgDE_mZSq32/"
     }
   ]
 }
