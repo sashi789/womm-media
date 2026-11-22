@@ -124,7 +124,9 @@
       "date": "2026-11-21",
       "slot": "pm",
       "name": "standup",
-      "status": "queued"
+      "status": "posted",
+      "link": "https://www.instagram.com/reel/DgB2CK1uruT/",
+      "media_id": "18130819459876803"
     },
     {
       "date": "2026-11-22",
