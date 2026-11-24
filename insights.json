@@ -1,7 +1,7 @@
 {
-  "pulled_at": "2026-11-22 20:12 UTC",
+  "pulled_at": "2026-11-24 00:39 UTC",
   "insights_available": false,
-  "insights_error": "Meta API error 400: {\"error\":{\"message\":\"(#10) Application does not have permission for this action\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"AO7wy5vi5DjNGMG0JY3OcTx\"}}",
+  "insights_error": "Meta API error 400: {\"error\":{\"message\":\"(#10) Application does not have permission for this action\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"A1RqzFfkIa2auDhFr0z_U2T\"}}",
   "reels": [
     {
       "date": "2026-11-12",
@@ -162,6 +162,22 @@
       "likes": 0,
       "comments": 0,
       "link": "https://www.instagram.com/reel/DgDE_mZSq32/"
+    },
+    {
+      "date": "2026-11-22",
+      "name": "knight",
+      "media_id": "18115521377349708",
+      "likes": 0,
+      "comments": 0,
+      "link": "https://www.instagram.com/reel/DgEa5jThCqj/"
+    },
+    {
+      "date": "2026-11-23",
+      "name": "iam",
+      "media_id": "18035398334855083",
+      "likes": 1,
+      "comments": 0,
+      "link": "https://www.instagram.com/reel/DgFpyc2oyAw/"
     }
   ]
 }
