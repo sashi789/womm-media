@@ -189,6 +189,54 @@
       "slot": "pm",
       "name": "quickcall",
       "status": "queued"
+    },
+    {
+      "date": "2026-11-26",
+      "slot": "am",
+      "name": "tokens",
+      "status": "queued"
+    },
+    {
+      "date": "2026-11-26",
+      "slot": "pm",
+      "name": "timezone",
+      "status": "queued"
+    },
+    {
+      "date": "2026-11-27",
+      "slot": "am",
+      "name": "password",
+      "status": "queued"
+    },
+    {
+      "date": "2026-11-27",
+      "slot": "pm",
+      "name": "notbug",
+      "status": "queued"
+    },
+    {
+      "date": "2026-11-28",
+      "slot": "am",
+      "name": "lambda_fn",
+      "status": "queued"
+    },
+    {
+      "date": "2026-11-29",
+      "slot": "am",
+      "name": "git_intro",
+      "status": "queued"
+    },
+    {
+      "date": "2026-11-29",
+      "slot": "pm",
+      "name": "prdesc",
+      "status": "queued"
+    },
+    {
+      "date": "2026-11-30",
+      "slot": "am",
+      "name": "https_lock",
+      "status": "queued"
     }
   ]
 }

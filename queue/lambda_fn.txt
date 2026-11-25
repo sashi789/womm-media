@@ -1,0 +1,19 @@
+thumb_seconds: 0.8
+---
+Your code runs. Nobody rents a server. | How does AWS Lambda charge for code?
+
+Lambda runs a small function only when something triggers it, then stops.
+
+Example: a photo lands in S3 -> S3 sends an event -> Lambda runs your function and makes a thumbnail -> done. Nothing runs, and nothing is billed, between uploads.
+
+What it costs: $0.20 per million requests, plus time used in GB-seconds (memory x seconds). Every month the first 1 million requests and 400,000 GB-seconds are free. 1M calls x 0.2 s x 0.5 GB = 100,000 GB-s, inside the free tier.
+
+Limits: a run lasts up to 15 minutes, cold starts can add delay after a quiet spell, no memory between runs, and a function that triggers itself can run up the bill.
+
+Would you go serverless? Tell me in the comments.
+
+Source: AWS Lambda pricing page and Lambda quotas documentation. Prices vary by region and architecture.
+Works On My Machine, Episode 32
+Follow @that_works_on_my_machine for more tech, explained simply.
+
+#aws #lambda #serverless #cloud #techexplained

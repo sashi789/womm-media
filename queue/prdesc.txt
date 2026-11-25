@@ -1,0 +1,12 @@
+thumb_seconds: 0.8
+---
+"Minor changes" | What do pull request descriptions really mean?
+
+"Minor changes" means 47 files changed. "Small refactor" means I rewrote all of it. "Fixes stuff" means I forgot what I fixed. "See ticket" means the ticket says "fix it".
+
+What is the biggest "minor change" you have reviewed? Tell me in the comments.
+
+Works On My Machine, Episode 35
+Follow @that_works_on_my_machine for more tech, explained simply.
+
+#developerhumor #programming #softwareengineering #devlife #codereview

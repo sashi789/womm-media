@@ -1,0 +1,22 @@
+thumb_seconds: 0.8
+---
+AI doesn't read words. It reads chunks. | What is a token, and why does it set AI's limits and price?
+
+A token is a chunk of text. Before an AI reads anything, your text is cut into chunks.
+
+How it works:
+1. Your text is cut into chunks (the split shown is an example; real splits differ by model)
+2. Each chunk has a number, an ID, from a fixed list
+3. The model predicts the number of the most likely next chunk
+4. That number becomes text, is added to the end, and it repeats
+
+Rule of thumb for English: 100 tokens is about 75 words. Code and many other languages need more.
+It also explains why AI can miscount the letters in a word: it sees chunks, not letters. And the context window and the price are both counted in tokens.
+
+What do you ask AI the most? Tell me in the comments.
+
+Source: OpenAI help docs on tokens (rule of thumb of about 4 characters or 3/4 of a word per token).
+Works On My Machine, Episode 28
+Follow @that_works_on_my_machine for more tech, explained simply.
+
+#ai #artificialintelligence #chatgpt #machinelearning #techexplained

@@ -1,0 +1,23 @@
+thumb_seconds: 0.8
+---
+Every change you ever made can be saved. | What is Git, and how does it remember everything?
+
+Git saves snapshots of your project, called commits, and keeps all of them.
+
+One save, step by step:
+1. Edit a file
+2. git add: choose what goes into the snapshot
+3. git commit -m "fix login": Git saves a snapshot with a message and an ID made from its contents
+
+Each commit points to the one before it, so history is a chain you can go back along. It all lives in a hidden .git folder on your own computer. A branch is a separate line of commits for trying ideas safely: merge it if it works, delete it if not.
+
+Git is not GitHub: Git is the tool, GitHub is a website that hosts Git projects.
+(Commit IDs in the video are made-up examples.)
+
+Ever lost code before Git? Tell me in the comments.
+
+Source: Pro Git book (git-scm.com/book).
+Works On My Machine, Episode 34
+Follow @that_works_on_my_machine for more tech, explained simply.
+
+#git #github #programming #learntocode #techexplained

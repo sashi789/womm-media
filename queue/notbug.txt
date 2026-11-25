@@ -1,0 +1,12 @@
+thumb_seconds: 0.8
+---
+"It's not a bug" | What do bug report replies really mean?
+
+"Working as designed" means nobody designed this. "Can't reproduce" means I tried once, on my machine. "Known limitation" means known to me, since just now. "Won't fix" means the fix is scarier than the bug.
+
+What is the best bug-turned-feature you have seen? Tell me in the comments.
+
+Works On My Machine, Episode 31
+Follow @that_works_on_my_machine for more tech, explained simply.
+
+#developerhumor #programming #softwareengineering #devlife #bugs

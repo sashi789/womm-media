@@ -1,0 +1,23 @@
+thumb_seconds: 0.8
+---
+Every report was a day off. Only at night. | How can a report be wrong only after dark?
+
+A realistic scenario, not a claim about any company: a Chicago shop's report counts orders per day. Evening orders land on the next day.
+
+Why it happens:
+1. The database stores times in UTC, the world's standard clock
+2. Chicago in winter is 6 hours behind UTC, so 8:30 pm Monday is 02:30 Tuesday in UTC
+3. The report took the date straight from the stored time: Tuesday. The customer's day was Monday
+
+The fix:
+1. Keep storing UTC
+2. Convert to the shop's time zone first, then take the date
+3. Test orders just before and after midnight, in more than one time zone
+
+What is the worst date bug you have seen? Tell me in the comments.
+
+Reference: Chicago uses Central Standard Time, UTC-6, in winter (IANA time zone database).
+Works On My Machine, Episode 29
+Follow @that_works_on_my_machine for more tech, explained simply.
+
+#softwareengineering #bugs #timezones #backend #techexplained
