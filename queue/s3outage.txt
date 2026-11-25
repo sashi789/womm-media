@@ -1,0 +1,20 @@
+thumb_seconds: 0.8
+---
+One typo. S3 down for hours. | How did a mistyped command take down S3 in US-EAST-1?
+
+On February 28, 2017, AWS's own report says:
+1. The S3 team was debugging a slow billing system. At 9:37 AM Pacific, a team member ran a playbook command to remove a few servers
+2. One input was wrong, and a much larger set of servers was removed
+3. They ran the index (where every object is) and placement (where new uploads go) subsystems. Both needed a full restart
+4. Neither had been fully restarted in years in a region that large, so it took longer than expected
+5. S3 was back to normal at 1:54 PM, about 4 hours 17 minutes later. EC2 launches, Lambda and the S3 console were affected too, and the status dashboard depended on S3
+
+What changed: the tool now removes capacity more slowly with a minimum-capacity safeguard, services are split into smaller cells, and the dashboard spans regions.
+
+Would your team survive a typo? Tell me in the comments.
+
+Source: "Summary of the Amazon S3 Service Disruption in the Northern Virginia (US-EAST-1) Region", AWS, aws.amazon.com/message/41926/
+Works On My Machine, Episode 33
+Follow @that_works_on_my_machine for more tech, explained simply.
+
+#aws #s3 #casestudy #devops #techexplained

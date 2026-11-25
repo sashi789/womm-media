@@ -221,6 +221,12 @@
       "status": "queued"
     },
     {
+      "date": "2026-11-28",
+      "slot": "pm",
+      "name": "s3outage",
+      "status": "queued"
+    },
+    {
       "date": "2026-11-29",
       "slot": "am",
       "name": "git_intro",
@@ -236,6 +242,12 @@
       "date": "2026-11-30",
       "slot": "am",
       "name": "https_lock",
+      "status": "queued"
+    },
+    {
+      "date": "2026-11-30",
+      "slot": "pm",
+      "name": "retrystorm",
       "status": "queued"
     }
   ]
