@@ -1,7 +1,7 @@
 {
-  "pulled_at": "2026-11-24 22:57 UTC",
+  "pulled_at": "2026-11-25 22:13 UTC",
   "insights_available": false,
-  "insights_error": "Meta API error 400: {\"error\":{\"message\":\"(#10) Application does not have permission for this action\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"AA--ZP_cLVO3a-nObw2b6GP\"}}",
+  "insights_error": "Meta API error 400: {\"error\":{\"message\":\"(#10) Application does not have permission for this action\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"A0qqoyWVbDisWSYr2aGD-aM\"}}",
   "reels": [
     {
       "date": "2026-11-12",
@@ -194,6 +194,22 @@
       "likes": 1,
       "comments": 0,
       "link": "https://www.instagram.com/reel/DgIOmDBKeSp/"
+    },
+    {
+      "date": "2026-11-24",
+      "name": "cachebug",
+      "media_id": "18224658319339781",
+      "likes": 2,
+      "comments": 0,
+      "link": "https://www.instagram.com/reel/DgJka3AB4Rq/"
+    },
+    {
+      "date": "2026-11-25",
+      "name": "tatkal",
+      "media_id": "18135918103707716",
+      "likes": 0,
+      "comments": 0,
+      "link": "https://www.instagram.com/reel/DgKzYpYh1rL/"
     }
   ]
 }
