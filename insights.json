@@ -1,7 +1,7 @@
 {
-  "pulled_at": "2026-11-25 22:13 UTC",
+  "pulled_at": "2026-11-26 22:11 UTC",
   "insights_available": false,
-  "insights_error": "Meta API error 400: {\"error\":{\"message\":\"(#10) Application does not have permission for this action\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"A0qqoyWVbDisWSYr2aGD-aM\"}}",
+  "insights_error": "Meta API error 400: {\"error\":{\"message\":\"(#10) Application does not have permission for this action\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"AF4VaDrJ_t8tHpcszUVt24Q\"}}",
   "reels": [
     {
       "date": "2026-11-12",
@@ -210,6 +210,22 @@
       "likes": 0,
       "comments": 0,
       "link": "https://www.instagram.com/reel/DgKzYpYh1rL/"
+    },
+    {
+      "date": "2026-11-25",
+      "name": "quickcall",
+      "media_id": "18083165570394044",
+      "likes": 1,
+      "comments": 0,
+      "link": "https://www.instagram.com/reel/DgMJMddPbnt/"
+    },
+    {
+      "date": "2026-11-26",
+      "name": "tokens",
+      "media_id": "18126732067955841",
+      "likes": 0,
+      "comments": 0,
+      "link": "https://www.instagram.com/reel/DgNYLAYhNH6/"
     }
   ]
 }
