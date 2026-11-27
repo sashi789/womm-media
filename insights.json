@@ -1,7 +1,7 @@
 {
-  "pulled_at": "2026-11-26 22:11 UTC",
+  "pulled_at": "2026-11-27 21:51 UTC",
   "insights_available": false,
-  "insights_error": "Meta API error 400: {\"error\":{\"message\":\"(#10) Application does not have permission for this action\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"AF4VaDrJ_t8tHpcszUVt24Q\"}}",
+  "insights_error": "Meta API error 400: {\"error\":{\"message\":\"(#10) Application does not have permission for this action\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"As0KJqr0-qt6IXg_apnc260\"}}",
   "reels": [
     {
       "date": "2026-11-12",
@@ -215,7 +215,7 @@
       "date": "2026-11-25",
       "name": "quickcall",
       "media_id": "18083165570394044",
-      "likes": 1,
+      "likes": 2,
       "comments": 0,
       "link": "https://www.instagram.com/reel/DgMJMddPbnt/"
     },
@@ -226,6 +226,22 @@
       "likes": 0,
       "comments": 0,
       "link": "https://www.instagram.com/reel/DgNYLAYhNH6/"
+    },
+    {
+      "date": "2026-11-26",
+      "name": "timezone",
+      "media_id": "17981739732154193",
+      "likes": 1,
+      "comments": 0,
+      "link": "https://www.instagram.com/reel/DgOt_nJJU61/"
+    },
+    {
+      "date": "2026-11-27",
+      "name": "password",
+      "media_id": "18045470306687607",
+      "likes": 0,
+      "comments": 0,
+      "link": "https://www.instagram.com/reel/DgP9CtWBFZm/"
     }
   ]
 }
